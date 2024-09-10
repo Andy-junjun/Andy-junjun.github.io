@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>2024CCPC网络赛</title>
+    <link href="/2024/09/10/2024CCPC%E7%BD%91%E7%BB%9C%E8%B5%9B/"/>
+    <url>/2024/09/10/2024CCPC%E7%BD%91%E7%BB%9C%E8%B5%9B/</url>
+    
+    <content type="html"><![CDATA[<h1 id="2024CCPC网络赛"><a href="#2024CCPC网络赛" class="headerlink" title="2024CCPC网络赛"></a>2024CCPC网络赛</h1><p>比赛采用$pta$平台，一开始服务器崩了，然后大家<del>坐牢</del>打板子，有的人$20min$就进去了，有的人$60min$还在外面。最后这种现象导致了最后$CCPC$名额分配方案改了！</p><blockquote><p>校名额：校排210 –&gt; 学校有队伍解题数&gt;&#x3D;4<br>队名额：队排250 –&gt; 队伍解题数&gt;&#x3D;6</p></blockquote><p>这下学校多了两个名额，我们队多了一个名额。</p><p>我队一共通过6题：$BDEJKL(J和L个人没参与)$</p><h2 id="L：模拟、暴力"><a href="#L：模拟、暴力" class="headerlink" title="L：模拟、暴力"></a>L：模拟、暴力</h2><p>这是签到题，按题意写就可以了</p><h2 id="B：构造"><a href="#B：构造" class="headerlink" title="B：构造"></a>B：构造</h2><blockquote><p>给你若干个数，你可以给他们重排，然后使得$\sum_{i&#x3D;1}^{n}\sum_{j&#x3D;i}^{n}f(i,j)最小，f(i,j)是区间[i,j]的极差$，求最小的值以及该值下的排列方案数</p></blockquote><p>其实这题很容易构造出最小值：就是排序之后变成<strong>不严格单调序列</strong></p><p>证明：把$i和j(i!&#x3D;j)$交换，发现在大的区间答案不变，小的区间必然变大</p><h2 id="K：博弈"><a href="#K：博弈" class="headerlink" title="K：博弈"></a>K：博弈</h2><blockquote><p>Alic和Bob两个人玩游戏，有n粒沙子，轮流操作，谁取完，谁赢</p><ul><li>第一个人取的沙子要求小于等于k</li><li>后面每个人的操作必须是之前所有操作的公因子(包括自己和对手)</li></ul><p>判断先手是否必胜</p></blockquote><p>如果奇数的话，先手必胜(全取1)<br>偶数的话……后面就是队友推的……<br><strong>结论</strong>：$lowbit(n)&lt;&#x3D;k 先手必胜$</p><h2 id="E：期望"><a href="#E：期望" class="headerlink" title="E：期望"></a>E：期望</h2><p>最大的构造很好推，前26个是m，然后$26<em>25$个(m-1)，然后$26</em>26*25$个(m-2)……</p><p>至于期望的话，其实考察你的观察力：<br>其实字典树每层的节点，相互独立，而且他们的<strong>概率都是相同的</strong>：<br>设第i层：$s(i)&#x3D;26^i*(1-(\frac{26^i-1}{26^i})^n)$</p><p>答案就是$\sum_{i&#x3D;1}^{m}26^i*(1-(\frac{26^i-1}{26^i})^n)$</p><h2 id="D：DP"><a href="#D：DP" class="headerlink" title="D：DP"></a>D：DP</h2><p>这题第一眼没思路，然后看了队友往DP想，然后想到正解</p><p>设$f[k][i][j]:第k次操作后匹配目标串的第i到j位的方案数$<br>$$<br>\begin{align}<br>对于i&#x3D;&#x3D;j：f[k][i][j]&#x3D;f[k-1][i][j]*2+(a[k]&#x3D;&#x3D;s[i])\<br>对于i&lt;j:f[k][i][j]&#x3D;f[k-1][i][j]*2+\sum_{z&#x3D;i}^{j-1}f[k-1][i][z]*f[k-1][z+1][j]+f[k-1][i][z-1]*f[k+1][z+1]<a href="a%5Bk%5D==s%5Bz%5D%E7%95%99%E6%84%8F%E4%B8%80%E4%B8%8B%E8%BE%B9%E7%95%8C%E7%BB%86%E8%8A%82">j</a><br>\end{align}<br>$$</p><h2 id="J：线性基"><a href="#J：线性基" class="headerlink" title="J：线性基"></a>J：线性基</h2><blockquote><p>两个序列a，b你可以交换相同位置$a_i$和$b_i$，求a和b两个序列的异或和的最大值最小</p></blockquote><p>这个交换操作就是等价于两个序列同时异或$a_{i}\bigoplus b_{i}$，然后怎么维护这个答案</p><p>这好像就是线性基板子，考场我们队现学的…，然后从最高位贪心是否交换会更优</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>网络赛</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>第一篇文章</title>
     <link href="/2024/09/09/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/"/>
     <url>/2024/09/09/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
